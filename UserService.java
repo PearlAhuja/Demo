@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,11 @@ public class UserService {
 	{
 		repository.save(user);
 		System.out.println("User  : "+ user );
+	}
+	public List<User> getUsers() {
+		return repository.findAll();
+      
+		
 	}
 
 }

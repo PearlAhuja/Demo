@@ -2,19 +2,29 @@ package com.example.demo;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Account {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
+    private Integer id ;
 	String ownerName;
 	float amount;
 	String city, state , status , accountType;
-	Date dateOfCreation;
+	String dateOfCreation;
 	int pinCode;
 	
 	
 	
-	public Date getDateOfCreation() {
+	public String getDateOfCreation() {
 		return dateOfCreation;
 	}
-	public void setDateOfCreation(Date dateOfCreation) {
+	public void setDateOfCreation(String dateOfCreation) {
 		this.dateOfCreation = dateOfCreation;
 	}
 	public String getOwnerName() {

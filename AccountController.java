@@ -3,6 +3,7 @@ package com.example.demo;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class AccountController {
 
+	@Autowired
+	AccountService accountService;
+	
 	ArrayList<Account> accountlist=new ArrayList<>();
 	@GetMapping("/")
 	public void getDetails() {	
@@ -34,9 +38,10 @@ public class AccountController {
 		
 	}
 	
+
 	@PostMapping
 	String displayDetails(@RequestBody Account account) {
-		
+		accountService.Save(account);
 		System.out.println("Account Details");
 		System.out.println("Name : " + account.getOwnerName());
 		System.out.println("Amount : " + account.getAmount());
